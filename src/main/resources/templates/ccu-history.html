@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Курс валют ПриватБанк</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-datetimepicker.min.css}" />
+</head>
+<body>
+<div class="container">
+    <h4>Архивный курс валют "Приват Банк"</h4>
+    <p th:text="${rates.date}"></p>
+    <div class="ccu-table">
+        <div class="row" style="padding-bottom: 10px; background-color: lightgray">
+            <div class="col-xs-3">Базовая валюта</div>
+            <div class="col-xs-3">Валюта сделки</div>
+            <div class="col-xs-3">Курс покупки</div>
+            <div class="col-xs-3">Курс продажи</div>
+        </div>
+        <div class="row" style="padding-bottom: 10px" th:each="item: ${rates.exchangeRate}">
+            <div class="col-xs-3" th:text="${item.baseCurrency}"></div>
+            <div class="col-xs-3" th:text="${item.currency}"></div>
+            <div class="col-xs-3" th:text="${item.purchaseRate}"></div>
+            <div class="col-xs-3" th:text="${item.saleRate}"></div>
+        </div>
+    </div>
+    <div>
+        <a href="/">Назад</a>
+    </div>
+</div>
+<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/moment-with-locales.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap-datetimepicker.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/scripts.js}"></script>
+</body>
+</html>

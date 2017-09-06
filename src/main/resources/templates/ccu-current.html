@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Курс валют ПриватБанк</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-datetimepicker.min.css}" />
+</head>
+<body>
+<div class="container">
+    <h4>Курс валют "Приват Банк" на текущий момент</h4>
+    <div class="ccu-table">
+        <div class="row" style="padding-bottom: 10px; background-color: lightgray">
+            <div class="col-xs-3">Базовая валюта</div>
+            <div class="col-xs-3">Валюта сделки</div>
+            <div class="col-xs-3">Курс покупки</div>
+            <div class="col-xs-3">Курс продажи</div>
+        </div>
+        <div class="row" style="padding-bottom: 10px" th:each="item: ${rates}">
+            <div class="col-xs-3" th:text="${item.baseCcy}"></div>
+            <div class="col-xs-3" th:text="${item.ccy}"></div>
+            <div class="col-xs-3" th:text="${item.buyVal}"></div>
+            <div class="col-xs-3" th:text="${item.saleVal}"></div>
+        </div>
+    </div>
+
+    <label for="datetimepicker" class="Label">Дата архивных курсов валют</label>
+    <div class="row datetimepicker">
+
+        <div class="col-xs-6">
+            <div id="date-pick">
+                <input type="text" class="form-control" id="datetimepicker"/>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <button class="btn btn-default" id="btn-submit" type="submit">Показать</button>
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/moment-with-locales.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap-datetimepicker.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/scripts.js}"></script>
+</body>
+</html>
